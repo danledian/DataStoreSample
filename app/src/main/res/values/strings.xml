@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DataStoreSample</string>
+    <string name="set_name">Set username</string>
+    <string name="get_name">Get username</string>
+    <string name="set_success">Set success</string>
+    <string name="preferences_dataStore">Preferences DataStore</string>
+    <string name="proto_dataStore">Proto DataStore</string>
+</resources>
