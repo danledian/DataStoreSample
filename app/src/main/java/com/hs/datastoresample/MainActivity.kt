@@ -1,6 +1,7 @@
 package com.hs.datastoresample
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,7 @@ import com.hs.datastoresample.data.datastore.UserPreferenceDataStore
 import com.hs.datastoresample.data.datastore.UserProtoDataStore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.*
 import java.util.*
 
 private const val TAG = "MainActivity"
@@ -34,14 +35,18 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             dataStores[0].getUsername()
             .collect {
-                tv_log.text = it
+                if(userDataStore is UserPreferenceDataStore){
+                    tv_log.text = it
+                }
             }
         }
 
         GlobalScope.launch(Dispatchers.Main) {
             dataStores[1].getUsername()
                 .collect {
-                    tv_log.text = it
+                    if(userDataStore is UserProtoDataStore){
+                        tv_log.text = it
+                    }
                 }
         }
 
