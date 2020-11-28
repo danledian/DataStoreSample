@@ -1,2 +1,2 @@
 # DataStoreSample
-Sample for DataStore
+A simple sample for DataStore
