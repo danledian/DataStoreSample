@@ -37,6 +37,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/set_name"
+        android:textSize="18sp"
+        android:textAllCaps="false"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

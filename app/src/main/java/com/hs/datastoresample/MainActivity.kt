@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initDataStore()
         initView()
+        initDataStore()
     }
 
     //1.0 临时写法，最好写在ViewModel里面
@@ -56,6 +56,13 @@ class MainActivity : AppCompatActivity() {
         rg_data_store_type.setOnCheckedChangeListener {
                 _, checkedId ->
             userDataStore = if(checkedId == R.id.rb_preferences) dataStores[0] else dataStores[1]
+            GlobalScope.launch {
+                userDataStore?.getUsername()
+                ?.take(1)
+                ?.collect{
+                    tv_log.text = it
+                }
+            }
         }
     }
 
